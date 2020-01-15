@@ -68,43 +68,68 @@ main PROC
 ; calculate and display all different ways they can be added and subtracted
 
 ; A + B
-	mov		eax,	Anum
-	mov		ebx,	Bnum
-	ADD		eax,	ebx
-	mov		total,	eax
-	mov		eax,	Anum
+	mov		eax, Anum
+	mov		ebx, Bnum
+	ADD		eax, ebx
+	mov		total, eax
+	mov		eax, Anum
 	call	WriteDec
-	mov		edx,	OFFSET plus
+	mov		edx, OFFSET plus
 	call	WriteString
-	mov		eax,	Bnum
+	mov		eax, Bnum
 	call	WriteDec
-	mov		edx,	OFFSET	equal
+	mov		edx, OFFSET	equal
 	call	WriteString
-	mov		eax,	total
+	mov		eax, total
 	call	WriteDec
 	call	CrLf
 
 ; A - B
-	mov		eax,	Anum
-	mov		ebx,	Bnum
-	SUB		eax,	ebx
-	mov		total,	eax
-	mov		eax,	Anum
+	mov		eax, Anum
+	mov		ebx, Bnum
+	SUB		eax, ebx
+	mov		total, eax
+	mov		eax, Anum
 	call	WriteDec
-	mov		edx,	OFFSET minus
+	mov		edx, OFFSET minus
 	call	WriteString
-	mov		eax,	Bnum
+	mov		eax, Bnum
 	call	WriteDec
-	mov		edx,	OFFSET	equal
+	mov		edx, OFFSET	equal
 	call	WriteString
-	mov		eax,	total
+	mov		eax, total
+	call	WriteDec
+	call	CrLf
+
+; A + C
+	mov		eax, Anum
+	mov		ebx, Cnum
+	ADD		eax, ebx
+	mov		total, eax
+	mov		eax, Anum
+	call	WriteDec
+	mov		edx, OFFSET plus
+	call	WriteString
+	mov		eax, Cnum
+	call	WriteDec
+	mov		edx, OFFSET	equal
+	call	WriteString
+	mov		eax, total
 	call	WriteDec
 	call	CrLf
 
 
-; display terminating message
+; A - C
+	
 
-; (insert executable instructions here)
+; B + C
+
+; B - C
+
+; A + B + C
+
+
+; display terminating message
 
 	exit	; exit to operating system
 main ENDP

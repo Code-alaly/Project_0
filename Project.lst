@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 14.24.28314.0	    01/15/20 10:15:04
+Microsoft (R) Macro Assembler Version 14.24.28314.0	    01/15/20 10:57:22
 Add Integers     (template.asm				     Page 1 - 1
 
 
@@ -122,53 +122,77 @@ Microsoft (R) Macro Assembler Version 14.24.28314.0	    01/15/20 10:15:04
 				; calculate and display all different ways they can be added and subtracted
 
 				; A + B
- 0000006E  A1 0000006F R		mov		eax,	Anum
- 00000073  8B 1D 00000073 R		mov		ebx,	Bnum
- 00000079  03 C3			ADD		eax,	ebx
- 0000007B  A3 000000BB R		mov		total,	eax
- 00000080  A1 0000006F R		mov		eax,	Anum
+ 0000006E  A1 0000006F R		mov		eax, Anum
+ 00000073  8B 1D 00000073 R		mov		ebx, Bnum
+ 00000079  03 C3			ADD		eax, ebx
+ 0000007B  A3 000000BB R		mov		total, eax
+ 00000080  A1 0000006F R		mov		eax, Anum
  00000085  E8 00000000 E		call	WriteDec
- 0000008A  BA 000000AF R		mov		edx,	OFFSET plus
+ 0000008A  BA 000000AF R		mov		edx, OFFSET plus
  0000008F  E8 00000000 E		call	WriteString
- 00000094  A1 00000073 R		mov		eax,	Bnum
+ 00000094  A1 00000073 R		mov		eax, Bnum
  00000099  E8 00000000 E		call	WriteDec
- 0000009E  BA 000000B7 R		mov		edx,	OFFSET	equal
+ 0000009E  BA 000000B7 R		mov		edx, OFFSET	equal
  000000A3  E8 00000000 E		call	WriteString
- 000000A8  A1 000000BB R		mov		eax,	total
+ 000000A8  A1 000000BB R		mov		eax, total
  000000AD  E8 00000000 E		call	WriteDec
  000000B2  E8 00000000 E		call	CrLf
 
 				; A - B
- 000000B7  A1 0000006F R		mov		eax,	Anum
- 000000BC  8B 1D 00000073 R		mov		ebx,	Bnum
- 000000C2  2B C3			SUB		eax,	ebx
- 000000C4  A3 000000BB R		mov		total,	eax
- 000000C9  A1 0000006F R		mov		eax,	Anum
+ 000000B7  A1 0000006F R		mov		eax, Anum
+ 000000BC  8B 1D 00000073 R		mov		ebx, Bnum
+ 000000C2  2B C3			SUB		eax, ebx
+ 000000C4  A3 000000BB R		mov		total, eax
+ 000000C9  A1 0000006F R		mov		eax, Anum
  000000CE  E8 00000000 E		call	WriteDec
- 000000D3  BA 000000B3 R		mov		edx,	OFFSET minus
+ 000000D3  BA 000000B3 R		mov		edx, OFFSET minus
  000000D8  E8 00000000 E		call	WriteString
- 000000DD  A1 00000073 R		mov		eax,	Bnum
+ 000000DD  A1 00000073 R		mov		eax, Bnum
  000000E2  E8 00000000 E		call	WriteDec
- 000000E7  BA 000000B7 R		mov		edx,	OFFSET	equal
+ 000000E7  BA 000000B7 R		mov		edx, OFFSET	equal
  000000EC  E8 00000000 E		call	WriteString
- 000000F1  A1 000000BB R		mov		eax,	total
+ 000000F1  A1 000000BB R		mov		eax, total
  000000F6  E8 00000000 E		call	WriteDec
  000000FB  E8 00000000 E		call	CrLf
+
+				; A + C
+ 00000100  A1 0000006F R		mov		eax, Anum
+ 00000105  8B 1D 00000077 R		mov		ebx, Cnum
+ 0000010B  03 C3			ADD		eax, ebx
+ 0000010D  A3 000000BB R		mov		total, eax
+ 00000112  A1 0000006F R		mov		eax, Anum
+ 00000117  E8 00000000 E		call	WriteDec
+ 0000011C  BA 000000AF R		mov		edx, OFFSET plus
+ 00000121  E8 00000000 E		call	WriteString
+ 00000126  A1 00000077 R		mov		eax, Cnum
+ 0000012B  E8 00000000 E		call	WriteDec
+ 00000130  BA 000000B7 R		mov		edx, OFFSET	equal
+ 00000135  E8 00000000 E		call	WriteString
+ 0000013A  A1 000000BB R		mov		eax, total
+ 0000013F  E8 00000000 E		call	WriteDec
+ 00000144  E8 00000000 E		call	CrLf
+
+
+				; A - C
+
+				; B + C
+
+				; B - C
+
+				; A + B + C
 
 
 				; display terminating message
 
-				; (insert executable instructions here)
-
 					exit	; exit to operating system
- 00000100  6A 00	   *	    push   +000000000h
- 00000102  E8 00000000 E   *	    call   ExitProcess
- 00000107			main ENDP
+ 00000149  6A 00	   *	    push   +000000000h
+ 0000014B  E8 00000000 E   *	    call   ExitProcess
+ 00000150			main ENDP
 
 				; (insert additional procedures here)
 
 				END main
-Microsoft (R) Macro Assembler Version 14.24.28314.0	    01/15/20 10:15:04
+Microsoft (R) Macro Assembler Version 14.24.28314.0	    01/15/20 10:57:22
 Add Integers     (template.asm				     Symbols 2 - 1
 
 
@@ -263,7 +287,7 @@ Segments and Groups:
 FLAT . . . . . . . . . . . . . .	GROUP
 STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
 _DATA  . . . . . . . . . . . . .	32 Bit	 000000DB Para	  Public  'DATA'	
-_TEXT  . . . . . . . . . . . . .	32 Bit	 00000107 Para	  Public  'CODE'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000150 Para	  Public  'CODE'	
 
 
 Procedures, parameters, and locals:
@@ -370,7 +394,7 @@ WriteStackFrame  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External
 WriteString  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteToFile  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteWindowsMsg  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
-main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000107 Public STDCALL
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000150 Public STDCALL
 printf . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 scanf  . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 wsprintfA  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
